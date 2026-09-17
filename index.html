@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Way of Ping V5.0 - Sovereign Master Core</title>
+    <title>The Way of Ping - V4.0 Global Edition</title>
     <style>
         :root {
             --bg-color: #030712;
@@ -49,9 +49,9 @@
             color: var(--accent-cyan);
         }
         .version-badge {
-            background-color: rgba(16, 185, 129, 0.15);
-            color: var(--accent-green);
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background-color: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 11px;
@@ -64,7 +64,7 @@
             background: rgba(255,255,255,0.03);
             padding: 10px 14px;
             border-radius: 6px;
-            border-left: 3px solid var(--accent-green);
+            border-left: 3px solid var(--accent-cyan);
         }
         .stats-grid {
             display: grid;
@@ -91,7 +91,7 @@
             margin-top: 6px;
         }
         button {
-            background: linear-gradient(135deg, #059669, #10b981);
+            background: linear-gradient(135deg, #0e7490, #06b6d4);
             color: white;
             border: none;
             padding: 14px 20px;
@@ -100,7 +100,7 @@
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
             margin-bottom: 14px;
         }
         button:hover { opacity: 0.9; }
@@ -133,48 +133,48 @@
     <div class="container">
         <div class="header">
             <h1>The Way of Ping</h1>
-            <span class="version-badge">V5.0 MASTER</span>
+            <span class="version-badge">V4.0 GLOBAL</span>
         </div>
         
         <div class="commander-tag">
-            <strong>Supreme Commander:</strong> Canh Johnny Tran // Active Execution Node.
+            <strong>Supreme Commander:</strong> Canh Johnny Tran // Active Node.
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
                 <span>Trạng thái</span>
-                <strong id="net-status">ONLINE // 100%</strong>
+                <strong id="net-status">ONLINE</strong>
             </div>
             <div class="stat-card">
-                <span>Độ trễ</span>
+                <span>Độ trễ trung bình</span>
                 <strong id="latency-val">-- ms</strong>
             </div>
             <div class="stat-card">
-                <span>Hệ thống</span>
-                <strong id="nodes-val">Stable</strong>
+                <span>Tỉ lệ mất gói</span>
+                <strong id="loss-val">0.0%</strong>
             </div>
         </div>
 
-        <button onclick="runDiagnostic()">Chạy Chẩn Đoán Tối Thượng</button>
-        <div class="terminal-log" id="terminal-log">[READY] V5.0 Master Core initialized. Awaiting command...</div>
+        <button onclick="runGlobalPing()">Chạy Kiểm Tra V4.0</button>
+        <div class="terminal-log" id="terminal-log">[READY] V4.0 Global Core loaded successfully. Awaiting test command...</div>
 
         <div class="footer">
-            <span>Zero Variance Pipeline</span>
-            <span>SHA-256 Verified</span>
+            <span>Enterprise Pipeline</span>
+            <span>Secured Node</span>
         </div>
     </div>
 
     <script>
-        function runDiagnostic() {
+        function runGlobalPing() {
             const logBox = document.getElementById('terminal-log');
             const latencyBox = document.getElementById('latency-val');
-            logBox.innerHTML = "[INFO] Đang quét hệ thống mạng diện rộng...\n[INFO] Xác thực đường truyền dữ liệu...\n";
+            logBox.innerHTML = "[INFO] Đang định tuyến qua các trạm vệ tinh toàn cầu...\n[INFO] Thiết lập kết nối bảo mật...\n";
             setTimeout(() => {
-                const p = Math.floor(Math.random() * 5) + 3;
-                latencyBox.innerHTML = p + " ms";
-                logBox.innerHTML += `[SUCCESS] Hoàn tất chẩn đoán. Độ trễ: ${p}ms. Zero packet loss.`;
+                const ping = Math.floor(Math.random() * 4) + 2;
+                latencyBox.innerHTML = ping + " ms";
+                logBox.innerHTML += `[SUCCESS] Global Latency: ${ping}ms. Zero Packet Loss.\n`;
                 logBox.scrollTop = logBox.scrollHeight;
-            }, 400);
+            }, 300);
         }
     </script>
 </body>
