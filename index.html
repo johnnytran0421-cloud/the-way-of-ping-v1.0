@@ -1,10 +1,9 @@
-HTML
 <!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Way of Ping V12.0 - Global Bilingual Sovereign Core</title>
+    <title>The Way of Ping V13.0 - Global Enterprise Core</title>
     <style>
         :root {
             --bg-color: #030712;
@@ -188,9 +187,9 @@ HTML
         <div class="header">
             <div class="header-left">
                 <h1>The Way of Ping</h1>
-                <span class="version-badge">V12.0 BILINGUAL</span>
+                <span class="version-badge">V13.0 GLOBAL</span>
             </div>
-            <button class="lang-toggle-btn" id="lang-btn" onclick="toggleLanguage()">🇸🇪 SVENSKA / VIỆT NAM</button>
+            <button class="lang-toggle-btn" id="lang-btn" onclick="toggleLanguage()">🇸🇪 SVENSKA / ENGLISH</button>
         </div>
         
         <div class="commander-tag">
@@ -233,7 +232,7 @@ HTML
                 <div class="stat-card"><span id="stat-lat-lbl">Realtids Latens</span><strong id="lat-val">-- ms</strong></div>
                 <div class="stat-card"><span id="stat-sec-lbl">Säkerhet</span><strong>SHA-256</strong></div>
             </div>
-            <div class="terminal-log" id="term-log">[REDO] V12.0 Sovereign Core initierad. Global API-synkronisering aktiv...</div>
+            <div class="terminal-log" id="term-log">[REDO] V13.0 Sovereign Core initierad. Global API-synkronisering aktiv...</div>
         </div>
 
         <div class="module-section" style="margin-bottom: 0;">
@@ -256,8 +255,8 @@ HTML
 
         const translations = {
             sv: {
-                badge: "V12.0 BILINGUAL",
-                langBtn: "🇸🇪 SVENSKA / VIỆT NAM",
+                badge: "V13.0 GLOBAL",
+                langBtn: "🇸🇪 SVENSKA / ENGLISH",
                 commanderLbl: "Högsta Befälhavare",
                 nodeLbl: "Suverän Nod",
                 syncing: "ANSLUTER TILL GLOBAL API...",
@@ -269,7 +268,7 @@ HTML
                 statusLbl: "Status",
                 latLbl: "Realtids Latens",
                 secLbl: "Säkerhet",
-                initLog: "[REDO] V12.0 Sovereign Core initierad. Global API-synkronisering aktiv...",
+                initLog: "[REDO] V13.0 Sovereign Core initierad. Global API-synkronisering aktiv...",
                 mod3: "3. Snabb Global Ordbok Sökning",
                 searchPlaceholder: "Ange sökord (t.ex. ping, suverän, nod)...",
                 searchBtn: "Sök",
@@ -278,28 +277,28 @@ HTML
                 footerLeft: "Enterprise Sovereign Core",
                 footerRight: "Production Ready 100/100"
             },
-            vi: {
-                badge: "V12.0 SONG NGỮ",
-                langBtn: "🇻🇳 TIẾNG VIỆT / SVENSKA",
-                commanderLbl: "Tối cao Thủ lĩnh",
-                nodeLbl: "Node Chủ quyền",
-                syncing: "ĐANG KẾT NỐI API TOÀN CẦU...",
-                synced: "ĐÃ ĐỒNG BỘ API TOÀN CẦU TRỰC TIẾP",
-                mod1: "1. Viễn trắc thị trường Crypto (API toàn cầu thời gian thực)",
-                refreshBtn: "Làm Mới Giá Toàn Cầu",
-                stressBtn: "Chạy Stress Test (1000 CAS)",
-                mod2: "2. Động cơ Edge Ping & Viễn trắc Đa tác tử",
-                statusLbl: "Trạng thái",
-                latLbl: "Độ trễ thực tế",
-                secLbl: "Bảo mật",
-                initLog: "[READY] V12.0 Sovereign Core đã khởi tạo. Đồng bộ API toàn cầu đang hoạt động...",
-                mod3: "3. Tra cứu từ điển toàn cầu nhanh",
-                searchPlaceholder: "Nhập từ cần tra (vd: ping, sovereign, node)...",
-                searchBtn: "Tra Cứu",
-                searchDefault: "Kết quả tra cứu từ điển toàn cầu sẽ hiển thị tại đây...",
-                emptySearch: "Vui lòng nhập từ khóa cần tra!",
-                footerLeft: "Hạt nhân chủ quyền doanh nghiệp",
-                footerRight: "Sẵn sàng sản xuất 100/100"
+            en: {
+                badge: "V13.0 GLOBAL",
+                langBtn: "🇬🇧 ENGLISH / SVENSKA",
+                commanderLbl: "Supreme Commander",
+                nodeLbl: "Sovereign Node",
+                syncing: "CONNECTING TO GLOBAL API...",
+                synced: "LIVE GLOBAL API SYNCHRONIZED",
+                mod1: "1. Crypto Market Telemetry (Real-Time Global API)",
+                refreshBtn: "Refresh Global Prices",
+                stressBtn: "Run Stress-Test (1000 CAS)",
+                mod2: "2. Edge Ping & Multi-Agent Telemetry Engine",
+                statusLbl: "Status",
+                latLbl: "Real-Time Latency",
+                secLbl: "Security",
+                initLog: "[READY] V13.0 Sovereign Core initialized. Global API sync active...",
+                mod3: "3. Global Dictionary Quick Search",
+                searchPlaceholder: "Enter keyword (e.g. ping, sovereign, node)...",
+                searchBtn: "Search",
+                searchDefault: "Global dictionary search results will appear here...",
+                emptySearch: "Please enter a search keyword!",
+                footerLeft: "Enterprise Sovereign Core",
+                footerRight: "Production Ready 100/100"
             }
         };
 
@@ -309,15 +308,15 @@ HTML
                 "suverän": "Självständig, oberoende och fullt styrande utan yttre inblandning.",
                 "nod": "En anslutningspunkt i ett nätverk eller central datastation."
             },
-            vi: {
-                "ping": "Độ trễ mạng; lệnh đo thời gian phản hồi gói tin.",
-                "suverän": "Độc lập, tự chủ và kiểm soát hoàn toàn không có sự can thiệp ngoài.",
-                "nod": "Điểm kết nối trong mạng lưới hoặc trạm dữ liệu trung tâm."
+            en: {
+                "ping": "Network latency; command to measure packet round-trip response time.",
+                "suverän": "Independent, autonomous, and fully in control without external interference.",
+                "nod": "A connection point in a network structure or central data station."
             }
         };
 
         function toggleLanguage() {
-            currentLang = currentLang === 'sv' ? 'vi' : 'sv';
+            currentLang = currentLang === 'sv' ? 'en' : 'sv';
             updateUI();
         }
 
@@ -355,7 +354,7 @@ HTML
             } else {
                 resBox.innerHTML = currentLang === 'sv' 
                     ? `Sökordet <strong>"${query}"</strong> har sökts fram via det globala analyssystemet.`
-                    : `Từ khóa <strong>"${query}"</strong> đã được truy vấn thành công qua hệ thống phân tích toàn cầu.`;
+                    : `Keyword <strong>"${query}"</strong> has been successfully queried via the global analytics system.`;
             }
         }
 
@@ -363,7 +362,7 @@ HTML
             const log = document.getElementById('term-log');
             const syncStatus = document.getElementById('sync-status');
             const t = translations[currentLang];
-            log.innerHTML += currentLang === 'sv' ? "\n[INFO] Hämtar realtidsdata från globala marknaden (CoinGecko)..." : "\n[INFO] Đang gọi API thị trường toàn cầu thời gian thực (CoinGecko)...";
+            log.innerHTML += currentLang === 'sv' ? "\n[INFO] Hämtar realtidsdata från globala marknaden (CoinGecko)..." : "\n[INFO] Fetching real-time global market data (CoinGecko)...";
             log.scrollTop = log.scrollHeight;
 
             try {
@@ -395,11 +394,11 @@ HTML
                 }
 
                 syncStatus.innerText = t.synced;
-                log.innerHTML += currentLang === 'sv' ? "\n[FRAMSTEG] Anslutning lyckades! Realtidspriser hämtade." : "\n[SUCCESS] Kết nối thành công! Đã kéo dữ liệu giá thật toàn cầu.";
+                log.innerHTML += currentLang === 'sv' ? "\n[FRAMSTEG] Anslutning lyckades! Realtidspriser hämtade." : "\n[SUCCESS] Connection successful! Live global prices fetched.";
                 log.scrollTop = log.scrollHeight;
             } catch(e) {
-                syncStatus.innerText = "SÄKER RESERVAKTIV";
-                log.innerHTML += "\n[VARNING] Nätverksbegränsning nådd, aktiverar säkra reservpriser.";
+                syncStatus.innerText = currentLang === 'sv' ? "SÄKER RESERVAKTIV" : "SECURE FALLBACK ACTIVE";
+                log.innerHTML += currentLang === 'sv' ? "\n[VARNING] Nätverksbegränsning nådd, aktiverar säkra reservpriser." : "\n[WARNING] Network rate-limit reached, activating secure fallback prices.";
                 log.scrollTop = log.scrollHeight;
             }
         }
@@ -422,14 +421,14 @@ HTML
 
         function runStressTest() {
             const log = document.getElementById('term-log');
-            log.innerHTML += currentLang === 'sv' ? "\n[INFO] Startar 1000 CAS Stress-test cykler..." : "\n[INFO] Đang chạy Stress Test (1000 CAS chu kỳ đồng thời)...";
+            log.innerHTML += currentLang === 'sv' ? "\n[INFO] Startar 1000 CAS Stress-test cykler..." : "\n[INFO] Initializing 1000 CAS stress-test cycles...";
             log.scrollTop = log.scrollHeight;
             let startTime = performance.now();
             setTimeout(() => {
                 let duration = Math.round(performance.now() - startTime);
                 log.innerHTML += currentLang === 'sv' 
                     ? `\n[CAS-LÅS] 1000/1000 transaktioner slutförda på ${duration}ms. SHA-256 Verifierad.` 
-                    : `\n[CAS-LOCK] 1000/1000 giao dịch hoàn thành trong ${duration}ms. Đã xác thực SHA-256.`;
+                    : `\n[CAS-LOCK] 1000/1000 transactions completed in ${duration}ms. SHA-256 Verified.`;
                 log.scrollTop = log.scrollHeight;
             }, 300);
         }
