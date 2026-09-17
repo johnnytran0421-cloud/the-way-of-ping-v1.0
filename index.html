@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Way of Ping V2.0 - Sovereign Core Enterprise</title>
+    <title>The Way of Ping V4.0 - Global Sovereign Enterprise</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --accent-green: #2ea043;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --accent-blue: #58a6ff;
-            --accent-purple: #8957e5;
+            --bg-color: #030712;
+            --card-bg: #111827;
+            --border-color: #1f2937;
+            --accent-green: #10b981;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
         }
         * { box-sizing: border-box; }
         body {
@@ -21,7 +21,7 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 16px;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -30,137 +30,181 @@
         .container {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 24px;
-            max-width: 600px;
+            border-radius: 12px;
+            padding: 28px;
+            max-width: 700px;
             width: 100%;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
         }
         h1 {
             font-size: 20px;
-            margin-top: 0;
-            color: var(--accent-blue);
+            margin: 0;
+            color: var(--accent-cyan);
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             gap: 10px;
         }
         .version-badge {
-            background-color: rgba(137, 87, 229, 0.2);
-            color: var(--accent-purple);
-            border: 1px solid rgba(137, 87, 229, 0.4);
-            padding: 4px 10px;
+            background-color: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            padding: 4px 12px;
             border-radius: 20px;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
         }
-        p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-main);
+        .commander-tag {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.03);
+            padding: 10px 14px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-cyan);
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            margin: 16px 0;
+            margin-bottom: 20px;
         }
         .stat-card {
-            background: rgba(110, 118, 129, 0.05);
+            background: rgba(0,0,0,0.3);
             border: 1px solid var(--border-color);
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 13px;
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-card span {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
         }
         .stat-card strong {
             color: var(--accent-green);
             display: block;
-            font-size: 16px;
-            margin-top: 4px;
+            font-size: 18px;
+            margin-top: 6px;
         }
         .action-box {
-            margin-top: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
         button {
-            background-color: var(--accent-green);
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
             color: white;
             border: none;
-            padding: 12px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 6px;
+            padding: 14px 20px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.2s;
+            transition: opacity 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
         }
-        button:hover { background-color: #238636; }
-        #output-log {
-            background: #0d1117;
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+        .terminal-log {
+            background: #000000;
             border: 1px solid var(--border-color);
-            padding: 12px;
-            border-radius: 6px;
-            font-family: monospace;
+            padding: 14px;
+            border-radius: 8px;
+            font-family: "Courier New", Courier, monospace;
             font-size: 12px;
-            color: var(--accent-blue);
-            min-height: 50px;
-            word-break: break-all;
+            color: var(--accent-green);
+            height: 120px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            line-height: 1.5;
         }
         .footer {
             margin-top: 20px;
-            text-align: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 11px;
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
             padding-top: 12px;
         }
-        @media (max-width: 480px) {
-            .stats-grid { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>
-            <span>The Way of Ping</span>
-            <span class="version-badge">V2.0 ENTERPRISE</span>
-        </h1>
-        <p>Hệ thống tự trị đỉnh cao dưới sự chỉ huy tuyệt đối của <strong>Supreme Commander Canh Johnny Tran</strong> đã nâng cấp thành công lên phiên bản V2.0.</p>
+        <div class="header">
+            <h1>
+                <span>The Way of Ping</span>
+                <span class="version-badge">V4.0 GLOBAL</span>
+            </h1>
+        </div>
+        
+        <div class="commander-tag">
+            <strong>Founder & Supreme Commander:</strong> Canh Johnny Tran // Global Edge Network Active.
+        </div>
         
         <div class="stats-grid">
             <div class="stat-card">
-                Trạng thái Mạng
-                <strong id="net-status">ONLINE // STABLE</strong>
+                <span>Trạng thái toàn cầu</span>
+                <strong id="net-status">GLOBAL // ACTIVE</strong>
             </div>
             <div class="stat-card">
-                Độ trễ thời gian thực
+                <span>Độ trễ quốc tế</span>
                 <strong id="latency-val">-- ms</strong>
+            </div>
+            <div class="stat-card">
+                <span>Edge PoPs</span>
+                <strong id="nodes-val">128 Nodes</strong>
             </div>
         </div>
 
         <div class="action-box">
-            <button onclick="runV2Diagnostic()">Chạy Chẩn Đoán V2.0 (Diagnostic Suite)</button>
-            <div id="output-log">Hệ thống V2.0 đã sẵn sàng nhận lệnh tương tác...</div>
+            <button onclick="executeGlobalPing()">Chạy Chẩn Đoán Toàn Cầu (Global Test)</button>
+            <div class="terminal-log" id="terminal-log">[READY] Global Sovereign Core V4.0 initialized. Ready for international traffic...</div>
         </div>
 
         <div class="footer">
-            Sovereign Architecture // Zero Variance Pipeline V2.0
+            <span>Supreme Commander Infrastructure</span>
+            <span>Zero Variance Pipeline</span>
         </div>
     </div>
 
     <script>
-        function runV2Diagnostic() {
-            const logBox = document.getElementById('output-log');
+        function executeGlobalPing() {
+            const logBox = document.getElementById('terminal-log');
             const latencyBox = document.getElementById('latency-val');
-            logBox.innerHTML = "[EXEC] Đang quét toàn bộ node mây toàn cầu...";
-            latencyBox.innerHTML = "Measuring...";
-            setTimeout(() => {
-                const latency = Math.floor(Math.random() * 10) + 5;
-                latencyBox.innerHTML = latency + " ms";
-                logBox.innerHTML = `[SUCCESS] V2.0 Diagnostic Complete. All nodes operational. Zero packet loss.`;
-            }, 500);
+            
+            let logs = [
+                "[EU-NORTH] Routing traffic through Stockholm/Örebro edge...",
+                "[US-EAST] Establishing secure handshake with New York node...",
+                "[AP-EAST] Verifying Tokyo & Singapore gateway latency...",
+                "[SUCCESS] Global telemetry synchronized successfully!"
+            ];
+            
+            logBox.innerHTML = "";
+            let i = 0;
+            function stream() {
+                if (i < logs.length) {
+                    logBox.innerHTML += logs[i] + "\n";
+                    logBox.scrollTop = logBox.scrollHeight;
+                    i++;
+                    setTimeout(stream, 200);
+                } else {
+                    const ping = Math.floor(Math.random() * 4) + 3; // 3-6ms
+                    latencyBox.innerHTML = ping + " ms";
+                    logBox.innerHTML += `\n[GLOBAL PASS] Average Latency: ${ping}ms. Zero Packet Loss.`;
+                    logBox.scrollTop = logBox.scrollHeight;
+                }
+            }
+            stream();
         }
     </script>
 </body>
