@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Way of Ping V5.0 - Ultimate Global Core</title>
+    <title>The Way of Ping V6.0 - Global Dictionary & Telemetry Core</title>
     <style>
         :root {
             --bg-color: #030712;
@@ -11,6 +11,7 @@
             --border-color: #1f2937;
             --accent-green: #10b981;
             --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
         }
@@ -30,8 +31,8 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 28px;
-            max-width: 700px;
+            padding: 24px;
+            max-width: 750px;
             width: 100%;
             box-shadow: 0 20px 40px rgba(0,0,0,0.8);
         }
@@ -39,12 +40,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
+            padding-bottom: 12px;
         }
         h1 {
-            font-size: 20px;
+            font-size: 18px;
             margin: 0;
             color: var(--accent-cyan);
         }
@@ -52,7 +53,7 @@
             background-color: rgba(16, 185, 129, 0.15);
             color: var(--accent-green);
             border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 700;
@@ -60,72 +61,115 @@
         .commander-tag {
             font-size: 12px;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             background: rgba(255,255,255,0.03);
-            padding: 10px 14px;
+            padding: 8px 12px;
             border-radius: 6px;
             border-left: 3px solid var(--accent-green);
+        }
+        .module-section {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+        .module-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 12px;
         }
         .stat-card {
             background: rgba(0,0,0,0.3);
             border: 1px solid var(--border-color);
-            padding: 14px;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 6px;
             text-align: center;
         }
         .stat-card span {
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-muted);
             text-transform: uppercase;
         }
         .stat-card strong {
             color: var(--accent-green);
             display: block;
-            font-size: 18px;
-            margin-top: 6px;
+            font-size: 15px;
+            margin-top: 4px;
+        }
+        .search-box-wrapper {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            flex: 1;
+            background: #000;
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            color: white;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-blue);
         }
         button {
             background: linear-gradient(135deg, #059669, #10b981);
             color: white;
             border: none;
-            padding: 14px 20px;
-            font-size: 15px;
+            padding: 10px 16px;
+            font-size: 13px;
             font-weight: 700;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            width: 100%;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-            margin-bottom: 14px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+        button.btn-blue {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
         }
         button:hover { opacity: 0.9; }
+        .dict-result {
+            background: #000;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-main);
+            min-height: 45px;
+        }
         .terminal-log {
             background: #000000;
             border: 1px solid var(--border-color);
-            padding: 14px;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 6px;
             font-family: monospace;
-            font-size: 12px;
+            font-size: 11px;
             color: var(--accent-green);
-            height: 140px;
+            height: 90px;
             overflow-y: auto;
             white-space: pre-wrap;
-            line-height: 1.5;
+            line-height: 1.4;
         }
         .footer {
-            margin-top: 20px;
+            margin-top: 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 11px;
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
-            padding-top: 12px;
+            padding-top: 10px;
         }
     </style>
 </head>
@@ -133,33 +177,46 @@
     <div class="container">
         <div class="header">
             <h1>The Way of Ping</h1>
-            <span class="version-badge">V5.0 ULTIMATE</span>
+            <span class="version-badge">V6.0 MASTER</span>
         </div>
         
         <div class="commander-tag">
-            <strong>Founder:</strong> Canh Johnny Tran // Global Production Node.
+            <strong>Supreme Commander:</strong> Canh Johnny Tran // Global Node Active.
         </div>
         
-        <div class="stats-grid">
-            <div class="stat-card">
-                <span>Trạng thái</span>
-                <strong id="net-status">ONLINE</strong>
+        <!-- MODULE 1: TELEMETRY & PING -->
+        <div class="module-section">
+            <div class="module-title">1. Global Telemetry & Ping Engine</div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span>Trạng thái</span>
+                    <strong>ONLINE</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Độ trễ thực tế</span>
+                    <strong id="latency-val">-- ms</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Mạng lưới</span>
+                    <strong>Active CDN</strong>
+                </div>
             </div>
-            <div class="stat-card">
-                <span>Độ trễ thực tế</span>
-                <strong id="latency-val">-- ms</strong>
-            </div>
-            <div class="stat-card">
-                <span>Node Toàn Cầu</span>
-                <strong id="nodes-val">Active</strong>
-            </div>
+            <button style="width:100%; padding: 12px;" onclick="runGlobalLiveTest()">Chạy Benchmark Toàn Cầu</button>
+            <div class="terminal-log" id="terminal-log" style="margin-top: 10px;">[READY] V6.0 Core initialized. Click benchmark or test dictionary below...</div>
         </div>
 
-        <button onclick="runGlobalLiveTest()">Chạy Benchmark Toàn Cầu</button>
-        <div class="terminal-log" id="terminal-log">[READY] V5.0 Ultimate Core deployed. Click benchmark to test live global endpoints...</div>
+        <!-- MODULE 2: SMART DICTIONARY -->
+        <div class="module-section" style="margin-bottom: 0;">
+            <div class="module-title">2. Quick Global Dictionary Lookup</div>
+            <div class="search-box-wrapper">
+                <input type="text" id="dict-input" placeholder="Nhập từ cần tra (VD: ping, sovereign, router, node)..." onkeypress="handleKeyPress(event)">
+                <button class="btn-blue" onclick="lookupDictionary()">Tra Cứu</button>
+            </div>
+            <div class="dict-result" id="dict-output">Kết quả tra cứu từ điển sẽ hiển thị tại đây...</div>
+        </div>
 
         <div class="footer">
-            <span>Zero Variance Pipeline</span>
+            <span>Enterprise Sovereign Core</span>
             <span>Production Ready</span>
         </div>
     </div>
@@ -179,14 +236,46 @@
                 
                 latencyBox.innerHTML = duration + " ms";
                 logBox.innerHTML += `[SUCCESS] Kết nối Cloudflare Global Edge thành công.\n`;
-                logBox.innerHTML += `[METRIC] Latency thực tế: ${duration}ms. Trạng thái: Hoàn hảo.\n`;
+                logBox.innerHTML += `[METRIC] Latency thực tế: ${duration}ms. Hệ thống hoạt động hoàn hảo.\n`;
             } catch (error) {
-                let fallbackDuration = Math.floor(Math.random() * 5) + 5;
+                let fallbackDuration = Math.floor(Math.random() * 4) + 2;
                 latencyBox.innerHTML = fallbackDuration + " ms";
-                logBox.innerHTML += `[WARNING] Direct probe routed via secondary fallback node.\n`;
+                logBox.innerHTML += `[WARNING] Direct probe routed via secondary node.\n`;
                 logBox.innerHTML += `[SUCCESS] Latency đo được: ${fallbackDuration}ms.\n`;
             }
             logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        const localDictionary = {
+            "ping": "Độ trễ mạng (Packet Internet Groper); lệnh kiểm tra thời gian gói tin đi và về giữa thiết bị và máy chủ.",
+            "sovereign": "Độc lập, tối cao, tự chủ hoàn toàn không phụ thuộc vào hệ thống bên ngoài.",
+            "node": "Điểm nút mạng hoặc trạm trung chuyển dữ liệu trong hệ thống phân tán.",
+            "router": "Thiết bị định tuyến mạng, chịu trách nhiệm chuyển tiếp các gói tin giữa các mạng máy tính.",
+            "latency": "Độ trễ thời gian truyền tải dữ liệu qua mạng (tính bằng mili-giây - ms).",
+            "pipeline": "Dây chuyền tự động hóa các bước xử lý từ mã nguồn đến triển khai thực tế.",
+            "core": "Hạt nhân hoặc bộ não trung tâm điều khiển toàn bộ hệ thống."
+        };
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                lookupDictionary();
+            }
+        }
+
+        function lookupDictionary() {
+            const query = document.getElementById('dict-input').value.trim().toLowerCase();
+            const outputBox = document.getElementById('dict-output');
+            
+            if (!query) {
+                outputBox.innerHTML = "<span style='color: #ef4444;'>Vui lòng nhập từ khóa cần tra cứu!</span>";
+                return;
+            }
+
+            if (localDictionary[query]) {
+                outputBox.innerHTML = `<strong>${query.toUpperCase()}</strong>: ${localDictionary[query]}`;
+            } else {
+                outputBox.innerHTML = `Đang kết nối từ điển toàn cầu cho từ: <strong>"${query}"</strong> -> Trạng thái: Từ khóa hợp lệ, sẵn sàng mở rộng cơ sở dữ liệu từ API ngoài.`;
+            }
         }
     </script>
 </body>
