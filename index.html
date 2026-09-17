@@ -173,7 +173,6 @@
             let startTime = performance.now();
             
             try {
-                // Thử đo độ trễ thực tế qua tài nguyên nhẹ công khai (Cloudflare/Google favicon)
                 await fetch('https://www.cloudflare.com/favicon.ico', { mode: 'no-cors', cache: 'no-store' });
                 let endTime = performance.now();
                 let duration = Math.round(endTime - startTime);
@@ -182,7 +181,6 @@
                 logBox.innerHTML += `[SUCCESS] Kết nối Cloudflare Global Edge thành công.\n`;
                 logBox.innerHTML += `[METRIC] Latency thực tế: ${duration}ms. Trạng thái: Hoàn hảo.\n`;
             } catch (error) {
-                // Fallback an toàn nếu có chính sách CORS chặn
                 let fallbackDuration = Math.floor(Math.random() * 5) + 5;
                 latencyBox.innerHTML = fallbackDuration + " ms";
                 logBox.innerHTML += `[WARNING] Direct probe routed via secondary fallback node.\n`;
