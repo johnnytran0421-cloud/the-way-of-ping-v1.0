@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: the-way-of-ping-enterprise-core
+    env: static
+    buildCommand: echo "Building V14.0 Sovereign Enterprise Core..."
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Sovereign-Core
+        value: SMF-X-V14.0-ACTIVE
